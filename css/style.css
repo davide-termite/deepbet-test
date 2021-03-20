@@ -4,8 +4,13 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: Lato;
+  font-size: 16px;
 }
 
 main {
@@ -14,24 +19,33 @@ main {
   width: 100%;
 }
 
+/*** SIDEBAR ***/
 .sidebar {
-  min-width: 250px;
+  width: 250px;
   height: 100%;
-}
-
-.table {
-  width: calc(100% - 250px);
-  height: 100%;
-}
-
-.standing {
-  min-width: 300px;
-  height: 100%;
-  background-color: blue;
-}
-
-.sidebar {
   padding: 20px;
+}
+
+.sidebar .logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.sidebar .logo-container img {
+  max-width: 100%;
+}
+
+.sidebar .league-selection {
+  height: 50px;
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+  color: #2f49d1;
+  background-color: #d5dbf6;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .sidebar hr {
@@ -43,22 +57,49 @@ main {
 }
 
 .sidebar .menu-item {
+  height: 50px;
+  padding: 10px;
   display: flex;
   align-items: center;
-  padding: 20px 10px;
-  margin: 10px 0;
+  margin: 30px 0;
   color: black;
-  background-color: red;
 }
 
 .sidebar .menu-item i {
+  width: 20px;
   margin-right: 20px;
+}
+
+.sidebar .active {
+  color: #2f49d1;
 }
 
 .active-bar {
   width: 10px;
-  height: 50px;
+  height: 40px;
   margin-left: 80px;
   background-color: #2f49d1;
   border-radius: 20px;
+}
+
+/*** END SIDEBAR ***/
+
+.table {
+  padding: 100px;
+  width: calc(100% - 250px);
+  height: 100vh;
+}
+
+.table #fixtures {
+  width: 100%;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+.table #fixtures tr {
+  height: 50px;
+}
+
+#fixtures tbody {
+  overflow-y: scroll;
 }
