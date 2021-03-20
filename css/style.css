@@ -24,6 +24,7 @@ main {
   width: 250px;
   height: 100%;
   padding: 20px;
+  border-right: 1px solid #d7d7d7;
 }
 
 .sidebar .logo-container {
@@ -62,7 +63,7 @@ main {
   display: flex;
   align-items: center;
   margin: 30px 0;
-  color: black;
+  color: #7a7a7a;
 }
 
 .sidebar .menu-item i {
@@ -84,13 +85,16 @@ main {
 
 /*** END SIDEBAR ***/
 
+/*** TABLE ***/
+
 .table {
-  padding: 100px;
+  padding: 50px 100px;
   width: calc(100% - 250px);
-  height: 100vh;
+  height: 100%;
 }
 
 .table #fixtures {
+  border-collapse: collapse;
   width: 100%;
   text-align: center;
   overflow-y: scroll;
@@ -98,8 +102,37 @@ main {
 
 .table #fixtures tr {
   height: 50px;
+  text-align: left;
 }
 
-#fixtures tbody {
-  overflow-y: scroll;
+#fixtures thead {
+  border-bottom: 1px solid #7a7a7a;
 }
+
+#fixtures tr th,
+td {
+  padding: 25px;
+}
+
+#fixtures .results td {
+  color: #7a7a7a;
+}
+
+#fixtures .results td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+#fixtures .results td:last-child {
+  border-radius: 0px 10px 10px 0px;
+}
+
+#fixtures .results tr:hover td {
+  color: #2f49d1;
+}
+#fixtures .results tr:hover {
+  cursor: pointer;
+  background-color: #d5dbf6;
+
+  transition: ease-in 0.2s;
+}
+/*** END TABLE ***/
