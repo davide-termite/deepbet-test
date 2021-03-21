@@ -3,7 +3,7 @@ function displayResult(match) {
   var template = Handlebars.compile(source);
 
   var html = template(match);
-  $(".results").append(html);
+  $(".result-rows").append(html);
 }
 
 $(document).ready(function () {
@@ -28,10 +28,21 @@ $(document).ready(function () {
         }
       }
 
+      console.log(selectedMatch);
+
       for (let i = 0; i < selectedMatch.length; i++) {
+        var time = selectedMatch[i].fixture.date;
+
+        var date = time.substring(0, 10);
+        var hour = time.substring(11, 19);
+
         var match = {
+          id: selectedMatch[i].fixture.id,
+          homeLogo: selectedMatch[i].teams.home.logo,
+          awayLogo: selectedMatch[i].teams.away.logo,
           status: selectedMatch[i].fixture.status.long,
-          date: selectedMatch[i].fixture.date,
+          date: date,
+          hour: hour,
           round: selectedMatch[i].league.round,
           home: selectedMatch[i].teams.home.name,
           away: selectedMatch[i].teams.away.name,

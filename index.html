@@ -9,7 +9,7 @@
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700;900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -28,74 +28,57 @@
             alt="logo"
           />
         </div>
-        <hr />
-        <select class="league-selection" name="championship" id="">
-          <option value="">Italia - Serie A</option>
-          <option value="">Inghilterra - Premier League</option>
-          <option value="">Spagna - Liga</option>
-          <option value="">Germania - Bundesliga</option>
-          <option value="">Francia - Ligue 1</option>
-        </select>
         <div class="menu">
-          <a href="/">
+          <!-- <a href="#">
             <div class="menu-item active">
               <i class="fas fa-futbol"></i>
               <div class="title">Matches</div>
               <div class="active-bar"></div>
             </div>
-          </a>
-
-          <!-- <a href="/statistics.html"> -->
-          <div class="menu-item">
-            <i class="fas fa-chart-area"></i>
-            <div class="title">Statistics</div>
-          </div>
-          <!-- </a> -->
-          <!-- <a href="/predictions.html"> -->
-          <div class="menu-item">
-            <i class="fas fa-lightbulb"></i>
-            <div class="title">Predictions</div>
-          </div>
+          </a> -->
         </div>
-        <!-- </a> -->
       </div>
       <div class="table">
-        <table id="fixtures">
-          <thead>
-            <tr>
-              <th>Home</th>
-              <th>Away</th>
-              <th>Status</th>
-              <th>Data</th>
-              <th>Round</th>
-            </tr>
-          </thead>
-          <tbody class="results"></tbody>
-        </table>
+        <div id="fixtures">
+          <div class="title fixed">
+            <h3>Home</h3>
+            <h3>Away</h3>
+            <h3>Status</h3>
+            <h3>Data</h3>
+            <h3>Hour</h3>
+            <h3>Round</h3>
+          </div>
+          <div class="result-rows"></div>
+        </div>
       </div>
     </main>
 
-    <!-- Handlebars Script -->
+    <!-- Handlebars Table Row Script -->
     <script id="match-row" type="text/x-handlebars-template">
-      <tr>
-        <td>
+      <div class="row" matchid="{{id}}" onclick="">
+        <div class="row-item home-team">
+          <img class="team-logo" src="{{homeLogo}}" alt="" />
           {{home}}
-        </td>
-        <td>
+        </div>
+        <div class="row-item away-team">
+          <img class="team-logo" src="{{awayLogo}}" alt="" />
           {{away}}
-        </td>
-        <td>
+        </div>
+        <div class="row-item match-status">
           {{status}}
-        </td>
-        <td>
+        </div>
+        <div class="row-item match-date">
           {{date}}
-        </td>
-        <td>
+        </div>
+        <div class="row-item match-hour">
+          {{hour}}
+        </div>
+        <div class="row-item match-round">
           {{round}}
-        </td>
-      </tr>
+        </div>
+      </div>
     </script>
-    <!-- End Handlebars Script -->
+    <!-- End Handlebars Table Row Script -->
 
     <script src="js/script.js" type="text/javascript"></script>
   </body>

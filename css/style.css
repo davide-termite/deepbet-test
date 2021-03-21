@@ -23,30 +23,19 @@ main {
 .sidebar {
   width: 250px;
   height: 100%;
-  padding: 20px;
-  border-right: 1px solid #d7d7d7;
+  padding: 0 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .sidebar .logo-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  height: 100px;
 }
 
 .sidebar .logo-container img {
   max-width: 100%;
-}
-
-.sidebar .league-selection {
-  height: 50px;
-  width: 100%;
-  font-weight: 700;
-  text-align: center;
-  color: #2f49d1;
-  background-color: #d5dbf6;
-  border: none;
-  border-radius: 10px;
-  padding: 10px;
 }
 
 .sidebar hr {
@@ -58,8 +47,6 @@ main {
 }
 
 .sidebar .menu-item {
-  height: 50px;
-  padding: 10px;
   display: flex;
   align-items: center;
   margin: 30px 0;
@@ -71,6 +58,16 @@ main {
   margin-right: 20px;
 }
 
+.sidebar .menu-item .flag-container {
+  width: 50px;
+  margin-right: 25px;
+}
+
+.sidebar .menu-item .flag-container img {
+  width: 100%;
+  border-radius: 10px;
+}
+
 .sidebar .active {
   color: #2f49d1;
 }
@@ -78,7 +75,7 @@ main {
 .active-bar {
   width: 10px;
   height: 40px;
-  margin-left: 80px;
+  margin-left: 50px;
   background-color: #2f49d1;
   border-radius: 20px;
 }
@@ -88,51 +85,66 @@ main {
 /*** TABLE ***/
 
 .table {
-  padding: 50px 100px;
   width: calc(100% - 250px);
   height: 100%;
-}
-
-.table #fixtures {
-  border-collapse: collapse;
-  width: 100%;
-  text-align: center;
+  padding: 0 20px;
+  background-color: white;
+  border-radius: 20px;
   overflow-y: scroll;
 }
 
-.table #fixtures tr {
-  height: 50px;
-  text-align: left;
+.table #fixtures {
+  width: 100%;
+  display: block;
+  border-collapse: collapse;
+  overflow-y: scroll;
 }
 
-#fixtures thead {
-  border-bottom: 1px solid #7a7a7a;
+#fixtures .row {
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 0;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-#fixtures tr th,
-td {
-  padding: 25px;
+#fixtures .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: calc(100% - 250px);
+  height: 100px;
+  padding: 20px;
+  border-bottom: 1px solid #d7d7d7;
+  background-color: white;
+}
+.result-rows {
+  margin-top: 100px;
 }
 
-#fixtures .results td {
-  color: #7a7a7a;
+#fixtures .row .row-item,
+h3 {
+  flex: 1;
 }
 
-#fixtures .results td:first-child {
-  border-radius: 10px 0 0 10px;
-}
-
-#fixtures .results td:last-child {
-  border-radius: 0px 10px 10px 0px;
-}
-
-#fixtures .results tr:hover td {
+#fixtures .result-rows .row:hover .row-item {
+  transform: scale(1.05);
+  transition: ease-in-out 0.2s;
   color: #2f49d1;
 }
-#fixtures .results tr:hover {
+
+#fixtures .result-rows .row:hover {
   cursor: pointer;
   background-color: #d5dbf6;
 
   transition: ease-in 0.2s;
 }
+
+.team-logo {
+  width: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
 /*** END TABLE ***/
