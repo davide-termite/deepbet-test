@@ -55,12 +55,12 @@
 
     <!-- Handlebars Table Row Script -->
     <script id="match-row" type="text/x-handlebars-template">
-      <div class="row" matchid="{{id}}" onclick="">
-        <div class="row-item home-team">
+      <div class="row" matchid="{{matchId}}">
+        <div teamId="{{homeId}}" class="row-item home-team">
           <img class="team-logo" src="{{homeLogo}}" alt="" />
           {{home}}
         </div>
-        <div class="row-item away-team">
+        <div teamId="{{awayId}}" class="row-item away-team">
           <img class="team-logo" src="{{awayLogo}}" alt="" />
           {{away}}
         </div>

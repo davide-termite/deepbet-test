@@ -28,8 +28,6 @@ $(document).ready(function () {
         }
       }
 
-      console.log(selectedMatch);
-
       for (let i = 0; i < selectedMatch.length; i++) {
         var time = selectedMatch[i].fixture.date;
 
@@ -37,7 +35,9 @@ $(document).ready(function () {
         var hour = time.substring(11, 19);
 
         var match = {
-          id: selectedMatch[i].fixture.id,
+          matchId: selectedMatch[i].fixture.id,
+          homeId: selectedMatch[i].teams.home.id,
+          awayId: selectedMatch[i].teams.away.id,
           homeLogo: selectedMatch[i].teams.home.logo,
           awayLogo: selectedMatch[i].teams.away.logo,
           status: selectedMatch[i].fixture.status.long,
@@ -56,4 +56,17 @@ $(document).ready(function () {
       alert("C'è stato un errore " + errore);
     },
   });
+});
+
+$(document).on("click", ".row", function () {
+  var matchId = $(this).attr("matchId");
+  sessionStorage.setItem("id", matchId);
+
+  var homeId = $(this).children(".home-team").attr("teamId");
+  sessionStorage.setItem("home", homeId);
+
+  var awayId = $(this).children(".away-team").attr("teamId");
+  sessionStorage.setItem("away", awayId);
+
+  window.open("/statistics.html");
 });
